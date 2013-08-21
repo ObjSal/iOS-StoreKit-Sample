@@ -1,0 +1,31 @@
+//
+// Prefix header for all source files of the 'iOS StoreKit Sample' target in the 'iOS StoreKit Sample' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_4_0
+#warning "This project uses features only available in iOS SDK 4.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import "NSData+Base64.h"
+
+
+#pragma mark - MACROS
+
+#define arrayCount(_array_)         (sizeof(_array_)/sizeof(_array_[0]))
+
+
+#pragma mark - Constants
+
+#define iTUNES_IDENTIFIER_PREFIX   @"com.byteapps.game.group"
+
+__attribute__((unused)) static NSString *storeKitBundles[] = {
+    iTUNES_IDENTIFIER_PREFIX "1",
+    iTUNES_IDENTIFIER_PREFIX "2"
+};
+
+#endif
