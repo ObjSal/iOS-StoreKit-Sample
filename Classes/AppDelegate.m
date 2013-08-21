@@ -1,9 +1,21 @@
 //
 //  AppDelegate.m
-//  Fruit Store
 //
-//  Created by Salvador Guerrero on 8/15/13.
-//  Copyright (c) 2013 ByteApps. All rights reserved.
+//  iOS StoreKit Sample, Huge list of in-app consumable products? No problem, here is a solution.
+//  Copyright (C) 2013  Salvador Guerrero
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// NU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/
 //
 
 #import "AppDelegate.h"
@@ -17,11 +29,15 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        self.viewController = [[ViewController alloc] initWithNibName:@"ViewController_iPhone" bundle:nil];
+//        self.viewController = [[ViewController alloc] initWithNibName:@"ViewController_iPhone" bundle:nil];
+        ViewController *viewController = [[ViewController alloc] initWithNibName:@"ViewController_iPhone" bundle:nil];
+        self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:viewController];
     } else {
         self.viewController = [[ViewController alloc] initWithNibName:@"ViewController_iPad" bundle:nil];
+        self.window.rootViewController = self.viewController;
     }
-    self.window.rootViewController = self.viewController;
+    //this line was moved inside the iPad's logic only, because for iPhone I'm using a navigation controller
+//    self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     return YES;
 }
